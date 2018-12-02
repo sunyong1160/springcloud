@@ -1,0 +1,29 @@
+server:
+  port: 8763
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+spring:
+  application:
+    name: eureka-feign
+
+# 开启hystrix功能 ,feign 与 hystrix熔断器使用 ，默认是关闭的
+#feign.hystrix.enable: true
+#feign和hystrix配合使用过程中，hystrix的默认超时时间为1s，feign的结果1s内没返回，即认为超时，在实际应用中不是很适用，需要修改hystrix的超时时间。
+#最好设置和feign的超时时间一致。
+#feign:
+#  client:
+#    config:
+#      remote-service:
+#        connectTimeout: 10000
+#        readTimeout: 12000
+#hystrix:
+#  command:
+#      default:
+#        execution:
+#          isolation:
+#            thread:
+#              timeoutInMilliseconds: 10000
