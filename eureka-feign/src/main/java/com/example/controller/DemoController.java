@@ -17,6 +17,8 @@ public class DemoController {
 
     @RequestMapping("/demo")
     public String demo() {
+//        int i = 1/0;
+        System.out.println(1234);
         return feignController.demo();
     }
 }

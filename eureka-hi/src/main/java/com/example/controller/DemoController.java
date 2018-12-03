@@ -25,7 +25,12 @@ public class DemoController {
     @RequestMapping("/demo")
     @ResponseBody
     public String demo() {
-        int i = 1 / 0;
+        // 测试网关超时，暂时注释
+        try {
+            Thread.sleep(12000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return demoService.demo();
     }
 

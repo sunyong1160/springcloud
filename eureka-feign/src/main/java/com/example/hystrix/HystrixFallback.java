@@ -10,13 +10,20 @@ import org.springframework.stereotype.Component;
  * Created by sunyong on 2018/12/1.
  */
 @Component
-public class HystrixFallback implements FallbackFactory {
+public class HystrixFallback implements FallbackFactory<FeignController> {
 
     private static final Logger logger = LoggerFactory.getLogger(HystrixFallback.class);
 
+
     @Override
-    public Object create(Throwable throwable) {
-        logger.error(throwable.getMessage(), throwable);
-        return null;
+    public FeignController create(Throwable cause) {
+
+        return new FeignController() {
+            @Override
+            public String demo() {
+                logger.info("进入断路器：{}", cause);
+                return "调用失败，进入熔断器";
+            }
+        };
     }
 }

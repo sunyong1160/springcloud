@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by sunyong on 2018/12/1.
  */
-@FeignClient(name = "qwe",url = "http://localhost:8762",fallback = HystrixFallback.class)
+@FeignClient(name = "eureka-hi",fallbackFactory = HystrixFallback.class)
 public interface FeignController {
 
     @RequestMapping("/demo")
