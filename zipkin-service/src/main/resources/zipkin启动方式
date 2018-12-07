@@ -1,0 +1,5 @@
+java -jar zipkin.jar --RABBIT_URI=amqp://admin:12345@localhost:5672/sleuth --STORAGE_TYPE=elasticsearch --ES_HOSTS=http//:localhost:9200 --ES_HTTP_LOGGING=BASIC
+java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://你的ip:9200 -jar  zipkin-server-2.10.3-exec.jar
+
+java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://localhost:9200 -jar zipkin-server-2.11.5-exec.jar --zipkin.collector.rabbitmq
+.addresses=localhost > 1.log

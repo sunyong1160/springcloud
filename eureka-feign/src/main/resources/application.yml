@@ -9,6 +9,11 @@ eureka:
 spring:
   application:
     name: eureka-feign
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://127.0.0.1:9411/
 
 # 开启hystrix功能 ,feign 与 hystrix熔断器使用 ，默认是关闭的
 feign:
@@ -18,7 +23,7 @@ feign:
 #最好设置和feign的超时时间一致。
 #feign:
 #  client:
-#    config:
+#    filter:
 #      remote-service:
 #        connectTimeout: 10000
 #        readTimeout: 12000

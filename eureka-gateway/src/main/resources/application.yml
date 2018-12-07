@@ -10,6 +10,12 @@ eureka:
 spring:
   application:
     name: eureka-gateway
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    enabled: true
   cloud:
     gateway:
       discovery:
@@ -17,24 +23,25 @@ spring:
           enabled: true
       routes:
       - id: eureka-feign
+        # lb代表从注册中心获取服务
         uri: lb://eureka-feign
         predicates:
+        # 转发该路径
         - Path=/demo/**
-        # 添加断路器
+        # 是否去掉前缀
         filters:
-        - name: Hystrix
-          args:
-            name: fallbackcmd
-            fallbackUri: forward:/fallback
+        # 添加过滤器
+#        - name: Hystrix
+#          args:
+#            name: fallbackcmd
+#            fallbackUri: forward:/fallback
+        # 自定义过滤器  在id = eureka-feign 下的请求才走的过滤器
+        - StripPrefix=0 # - StripPrefix表示去掉某一级 0表示不去掉，1表示去掉一级，以此类推
+        - RequestTime=true  # 表示使用 RequestTimeGatewayFilterFactory 自定义过滤器
+      - id: eureka-hi2
+        uri: lb://eureka-hi2
+        predicates:
+        - Path=/hi2/**
 logging:
   level:
     org.springframework.cloud.gateway: debug
-hystrix:
-  command:
-    fallbackcmd:
-      timeout:
-        enabled: true
-      execution:
-        thread:
-          timeoutInMilliseconds: 15000
-
