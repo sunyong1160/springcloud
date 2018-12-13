@@ -21,7 +21,13 @@ public class HystrixFallback implements FallbackFactory<FeignController> {
         return new FeignController() {
             @Override
             public String demo() {
-                logger.info("进入断路器：{}", cause);
+                logger.info("demo进入断路器：{}", cause);
+                return "调用失败，进入熔断器";
+            }
+
+            @Override
+            public String send() {
+                logger.info("send进入断路器：{}", cause);
                 return "调用失败，进入熔断器";
             }
         };

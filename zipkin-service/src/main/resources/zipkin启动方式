@@ -1,5 +1,34 @@
 java -jar zipkin.jar --RABBIT_URI=amqp://admin:12345@localhost:5672/sleuth --STORAGE_TYPE=elasticsearch --ES_HOSTS=http//:localhost:9200 --ES_HTTP_LOGGING=BASIC
 java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://你的ip:9200 -jar  zipkin-server-2.10.3-exec.jar
 
-java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://localhost:9200 -jar zipkin-server-2.11.5-exec.jar --zipkin.collector.rabbitmq
-.addresses=localhost > 1.log
+java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://localhost:9200 -jar zipkin-server-2.11.5-exec.jar --zipkin.collector.rabbitmq.addresses=localhost > 1.log
+
+https://windmt.com/2018/04/24/spring-cloud-12-sleuth-zipkin/
+
+
+
+
+zipkin写入elasticsearch中 dependencies 无法显示
+https://blog.csdn.net/songhaifengshuaige/article/details/79205047
+https://blog.csdn.net/u012394095/article/details/82657112
+
+
+安装低点版本 ，高版本有点问题
+docker安装elasticsearch
+docker pull registry.docker-cn.com/library/elasticsearch
+https://blog.csdn.net/qq_40995335/article/details/81051379
+启动方式：
+docker run -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -d -p 9200:9200 -p 9300:9300 --name ES0 4f7e4c61f09d
+##############################################################################################################
+docker安装kibana
+docker pull registry.docker-cn.com/library/kibana
+启动方式：
+docker run --name kibana -e ELASTICSEARCH_URL=http://192.168.1.168:9200 -p 5601:5601 -d e1ab1b23f18a
+##############################################################################################################
+docker安装zipkin-dependencies
+https://blog.csdn.net/u012394095/article/details/82657112
+启动方式：
+docker run --name zipkin-dependencies --env STORAGE_TYPE=elasticsearch --env ES_HOSTS=192.168.1.168:9200 --env ES_INDEX=zipkin --rm=true -e JAVA_OPTS="-Xmx3550m -Xms3550m" openzipkin/zipkin-dependencies:1.9.2
+##############################################################################################################
+启动zipkin
+java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://192.168.1.168:9200 -jar zipkin-server-2.11.5-exec.jar --zipkin.collector.rabbitmq.addresses=localhost > 1.log

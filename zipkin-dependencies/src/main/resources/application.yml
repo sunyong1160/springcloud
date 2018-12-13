@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: zipkin-dependecies
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://10.0.51.30:8761/eureka/
+zipkin:
+  storage:
+    elasticsearch:
+      hosts: 192.168.1.168
+      cluster:
+      index: zipkin

@@ -30,4 +30,13 @@ public class DemoController {
 //        int i = 1/0;
         return hi2FeginController.demo2hi2();
     }
+
+    /**
+     * 不走网关
+     * @return
+     */
+    @RequestMapping("/send")
+    public String send(){
+        return feignController.send();
+    }
 }

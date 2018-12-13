@@ -13,4 +13,7 @@ public interface FeignController {
     @RequestMapping("/demo")
     String demo();
 
+    @RequestMapping("/send")
+    String send();
+
 }
