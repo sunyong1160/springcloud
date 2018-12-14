@@ -3,15 +3,16 @@ java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://你的ip:9200 -jar  zipkin-s
 
 java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://localhost:9200 -jar zipkin-server-2.11.5-exec.jar --zipkin.collector.rabbitmq.addresses=localhost > 1.log
 
+https://www.cnblogs.com/cralor/p/9246582.html
 https://windmt.com/2018/04/24/spring-cloud-12-sleuth-zipkin/
-
-
-
-
+##############################################################################################################
+zipkin
+https://blog.csdn.net/u012394095/article/category/8022242
+##############################################################################################################
 zipkin写入elasticsearch中 dependencies 无法显示
 https://blog.csdn.net/songhaifengshuaige/article/details/79205047
 https://blog.csdn.net/u012394095/article/details/82657112
-
+##############################################################################################################
 
 安装低点版本 ，高版本有点问题
 docker安装elasticsearch

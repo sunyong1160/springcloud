@@ -1,12 +1,5 @@
 server:
   port: 5000
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    registry-fetch-interval-seconds: 30
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
 spring:
   application:
     name: admin-server
@@ -14,7 +7,30 @@ spring:
     admin:
       routes:
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+#  security:
+#    user:
+#      name: user
+#      password: password
+eureka:
+  instance:
+    health-check-url-path: /actuator/health #2.0后actuator的地址发生了变化
+#    metadata-map:
+#      user.name: ${spring.security.user.name}
+#      user.password: ${spring.security.user.password}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    registry-fetch-interval-seconds: 30
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 
+management:
+  endpoints:
+    web:
+    exposure:
+      include: '*'
+  endpoint:
+    health:
+      show-details: always
 logging:
   file: "logs/admin-server.log"
-

@@ -21,7 +21,10 @@ public class TaskSchedule {
     private ElasticSearchConfig elasticSearchConfig;
 
 
-    @Scheduled(cron = "0/5 * * * * *")
+    /**
+     * 每30s执行一次
+     */
+    @Scheduled(cron = "0/30 * * * * *")
     public void task() {
         System.out.println("1111111111");
         Runnable logInitializer = LogInitializer.create("info"); // 日志级别
