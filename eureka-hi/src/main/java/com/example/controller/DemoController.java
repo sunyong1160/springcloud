@@ -1,6 +1,8 @@
 package com.example.controller;
 
+import com.example.mq.Sender;
 import com.example.service.DemoService;
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -21,6 +23,17 @@ public class DemoController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
+
+    @Autowired
+    private Sender sender;
+
+    @RequestMapping("/send")
+    @ResponseBody
+    public String send(){
+        sender.send();
+        return "success";
+    }
+
 
     @RequestMapping("/demo")
     @ResponseBody

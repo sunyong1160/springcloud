@@ -16,7 +16,11 @@ spring:
     sampler:
       probability: 1.0 #以100%的概率将链路的数据上传给Zipkin Server，默认情况下，该值为0.1
   zipkin:
-    base-url: http://127.0.0.1:9411/
+#    base-url: http://127.0.0.1:94112/
+    sender:
+      type: rabbit
+    rabbitmq:
+      queue: zipkin # 默认
   rabbitmq:
     host: 127.0.0.1
     port: 5672

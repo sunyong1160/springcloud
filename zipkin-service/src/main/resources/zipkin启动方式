@@ -5,6 +5,7 @@ java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://localhost:9200 -jar zipkin-s
 
 https://www.cnblogs.com/cralor/p/9246582.html
 https://windmt.com/2018/04/24/spring-cloud-12-sleuth-zipkin/
+https://blog.csdn.net/hubo_88/article/details/80889973
 ##############################################################################################################
 zipkin
 https://blog.csdn.net/u012394095/article/category/8022242
@@ -28,8 +29,9 @@ docker run --name kibana -e ELASTICSEARCH_URL=http://192.168.1.168:9200 -p 5601:
 ##############################################################################################################
 docker安装zipkin-dependencies
 https://blog.csdn.net/u012394095/article/details/82657112
-启动方式：
+启动方式： 启动后 进程执行一次就退出，已把源码cope出来定时任务执行（zipkin-dependencies）
 docker run --name zipkin-dependencies --env STORAGE_TYPE=elasticsearch --env ES_HOSTS=192.168.1.168:9200 --env ES_INDEX=zipkin --rm=true -e JAVA_OPTS="-Xmx3550m -Xms3550m" openzipkin/zipkin-dependencies:1.9.2
 ##############################################################################################################
 启动zipkin
-java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://192.168.1.168:9200 -jar zipkin-server-2.11.5-exec.jar --zipkin.collector.rabbitmq.addresses=localhost > 1.log
+java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://127.0.0.1:9200 -jar zipkin-server-2.11.5-exec.jar --zipkin.collector.rabbitmq
+.addresses=127.0.0.1 --zipkin.collector.rabbitmq.username=guest --zipkin.collector.rabbitmq.password=guest > 1.log

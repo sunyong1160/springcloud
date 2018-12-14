@@ -14,7 +14,11 @@ spring:
     sampler:
       probability: 1.0
   zipkin:
-    base-url: http://127.0.0.1:9411/
+#    base-url: http://127.0.0.1:94112/
+    sender:
+      type: rabbit
+    rabbitmq:
+      queue: zipkin # 默认
     enabled: true
   cloud:
     gateway:

@@ -13,7 +13,14 @@ spring:
     sampler:
       probability: 1.0
   zipkin:
-    base-url: http://127.0.0.1:9411/
+    #内存方式配置
+#    base-url: http://127.0.0.1:94112/ #改错，使用rabbitmq
+    #日志发送队列类型
+    sender:
+      type: rabbit
+    #发送的队列名称，默认zipkin，正常情况不要修改因为zipkin-server默认监控队列也是zipkin
+    rabbitmq:
+      queue: zipkin
 
 # 开启hystrix功能 ,feign 与 hystrix熔断器使用 ，默认是关闭的
 feign:
