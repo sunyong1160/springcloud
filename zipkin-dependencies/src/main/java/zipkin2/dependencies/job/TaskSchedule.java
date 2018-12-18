@@ -31,7 +31,7 @@ public class TaskSchedule {
         logInitializer.run(); // 启动日志打印线程
         ElasticsearchDependenciesJob.builder()
                 .logInitializer(logInitializer) // 设置日志打印 线程
-                .day(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli()) // 生成调用链的日志，这里是生成昨天的
+                .day(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli()) // 生成调用链的日志
                 .hosts(elasticSearchConfig.getHosts())  //  es的集群地址
                 .index(elasticSearchConfig.getIndex())  // es的索引名称
                 .build()

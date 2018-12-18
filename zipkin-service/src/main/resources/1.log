@@ -90,3 +90,5 @@
 2018-12-14 14:51:00.073  INFO 11072 --- [  XNIO-1 task-1] i.u.servlet                              : Initializing Spring FrameworkServlet 'dispatcherServlet'
 2018-12-14 14:51:00.074  INFO 11072 --- [  XNIO-1 task-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
 2018-12-14 14:51:00.104  INFO 11072 --- [  XNIO-1 task-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 30 ms
+2018-12-14 15:20:49.260  INFO 11072 --- [       Thread-4] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5f341870: startup date [Fri Dec 14 14:50:18 CST 2018]; root of context hierarchy
+2018-12-14 15:20:49.311  INFO 11072 --- [       Thread-4] i.u.servlet                              : Destroying Spring FrameworkServlet 'dispatcherServlet'
