@@ -17,6 +17,7 @@
         <module>zipkin-service</module>
         <module>admin-server</module>
         <module>zipkin-dependencies</module>
+        <module>springboot-rabbitmq</module>
     </modules>
 
     <parent>
