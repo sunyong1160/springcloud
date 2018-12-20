@@ -2,7 +2,6 @@ package com.example.rabbitmq.delay.controller;
 
 import com.example.rabbitmq.delay.config.RabbitConfig;
 import com.example.rabbitmq.delay.entity.Book;
-import com.example.rabbitmq.delay.handler.BookHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
