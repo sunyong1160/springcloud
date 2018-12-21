@@ -18,6 +18,7 @@
         <module>admin-server</module>
         <module>zipkin-dependencies</module>
         <module>springboot-rabbitmq</module>
+        <module>springboot-elasticsearch</module>
     </modules>
 
     <parent>

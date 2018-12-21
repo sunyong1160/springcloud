@@ -1,0 +1,9 @@
+
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300  #9300端口 ES节点之间通讯使用 9200端口 ES节点和外部通讯使用（9300是tcp通讯端口，集群间和TCPClient都走的它；9200是http协议的RESTful接口）
+      repositories:
+        enabled: true
+server:
+  port: 8877
