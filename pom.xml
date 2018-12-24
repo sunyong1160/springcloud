@@ -19,6 +19,7 @@
         <module>zipkin-dependencies</module>
         <module>springboot-rabbitmq</module>
         <module>springboot-elasticsearch</module>
+        <module>springboot-webflux</module>
     </modules>
 
     <parent>
