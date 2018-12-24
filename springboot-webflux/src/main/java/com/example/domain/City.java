@@ -2,12 +2,16 @@ package com.example.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 城市实体类
  */
 @Data
-public class City {
+public class City implements Serializable {
 
+
+    private static final long serialVersionUID = -5596928918210386152L;
     /**
      * 城市编号
      */
