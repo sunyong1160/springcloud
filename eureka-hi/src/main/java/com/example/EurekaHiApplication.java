@@ -13,8 +13,8 @@ import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 
 @SpringBootApplication
-@EnableEurekaClient
-@EnableDiscoveryClient
+//@EnableEurekaClient
+//@EnableDiscoveryClient
 @EnableAsync // 开启异步
 public class EurekaHiApplication {
     public static void main(String[] args) {

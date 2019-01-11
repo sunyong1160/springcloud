@@ -1,8 +1,7 @@
 package com.example.rabbitmq.basic.controller;
 
-import com.battcn.config.RabbitConfig;
-import com.battcn.entity.Book;
-import com.battcn.handler.BookHandler;
+import com.example.rabbitmq.basic.config.RabbitConfig;
+import com.example.rabbitmq.basic.entity.Book;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
