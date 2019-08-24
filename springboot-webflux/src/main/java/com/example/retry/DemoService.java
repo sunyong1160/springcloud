@@ -35,4 +35,14 @@ public class DemoService {
         }
         return result;
     }
+
+
+    /**
+     * spring retry重试
+     * @return
+     */
+    public String springRetry(){
+        String result = retryService.getSpringRetry();
+        return result;
+    }
 }

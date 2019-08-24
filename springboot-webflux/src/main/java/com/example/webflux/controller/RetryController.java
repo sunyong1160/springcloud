@@ -17,4 +17,9 @@ public class RetryController {
         String res = demoService.retry();
         return "success -- " + res;
     }
+
+    @RequestMapping("/spring/retry")
+    public String springRetry(){
+        return demoService.springRetry() + "===";
+    }
 }
